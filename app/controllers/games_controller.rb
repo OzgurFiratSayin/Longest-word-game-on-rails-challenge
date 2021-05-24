@@ -11,7 +11,7 @@ class GamesController < ApplicationController
 
 
     def included?(guess, letters)
-        guess.chars.all? { |letter| guess&.count(letter) <= letters.count(letter) }
+        guess.chars.map {|e| e.upcase}.all? { |letter| guess&.count(letter) <= letters.count(letter) }
     end
 
     def english_word?(word)
